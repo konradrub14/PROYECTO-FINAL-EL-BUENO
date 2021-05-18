@@ -58,7 +58,6 @@ public class RegisterController {
         try{
             rdao.Registrar(new Usuario(fieldNOMBREU.getText(),fieldNOMBRE.getText(),fieldAPELLIDO.getText(),fieldCORREO.getText(),fieldCONTRAU.getText()));
             
-           
         } catch(SQLException ex) {
             Alertas.mostrarError(ex.getMessage());
         }
