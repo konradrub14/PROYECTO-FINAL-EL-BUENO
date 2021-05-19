@@ -12,11 +12,19 @@ import javafx.scene.control.Alert;
  * @author konra
  */
 public class Alertas {
+    /**
+     * 
+     * @param mensaje 
+     */
     public static void mostrarError(String mensaje){
         Alert alerta = new Alert(Alert.AlertType.ERROR);
         alerta.setContentText(mensaje);
         alerta.show();
     }
+    /**
+     * 
+     * @param mensaje 
+     */
     public static void mostrarInfo(String mensaje) {
         Alert alerta = new Alert(Alert.AlertType.INFORMATION);
         alerta.setContentText(mensaje);

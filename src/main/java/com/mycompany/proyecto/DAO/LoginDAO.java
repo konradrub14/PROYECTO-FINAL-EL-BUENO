@@ -20,7 +20,12 @@ import java.sql.SQLException;
  */
 public class LoginDAO {
     private Connection conexion;
-
+/**
+ * 
+ * @throws ClassNotFoundException
+ * @throws SQLException
+ * @throws IOException 
+ */
     public void conectar() throws ClassNotFoundException, SQLException, IOException {
      
         String host = "localhost";
@@ -32,10 +37,20 @@ public class LoginDAO {
         conexion = DriverManager.getConnection("jdbc:mariadb://" + host + ":" + port + "/" + name + "?serverTimezone=UTC",
                 username, password);
     }
+    /**
+     * metodo para desconectarse de la base de datos
+     * @throws SQLException 
+     */
     public void desconectar() throws SQLException {
         conexion.close();
     }
-    
+    /**
+     * metodo para buscar un usuario en la base de datos.
+     * @param nombre
+     * @param pass
+     * @return
+     * @throws SQLException 
+     */
     public boolean searchUsuario(String nombre,String pass) throws SQLException {
         String sql = "SELECT * FROM Usuario WHERE nombre_usuario=? and contrasea=? LIMIT 1";
         PreparedStatement sentencia = conexion.prepareStatement(sql);

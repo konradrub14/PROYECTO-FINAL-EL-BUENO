@@ -9,7 +9,7 @@ package com.mycompany.models;
  *
  * @author konra
  */
-public  class Usuario {
+public abstract class Usuario {
    private int id_usuario;
    private String nombre_u;
    private String nombre_p;

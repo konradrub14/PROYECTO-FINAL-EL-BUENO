@@ -20,7 +20,13 @@ import java.util.List;
  */
 public class RegisterDAO {
     private Connection conexion;
-
+    
+    /**
+     * 
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     * @throws IOException 
+     */
     public void conectar() throws ClassNotFoundException, SQLException, IOException {
      
         String host = "localhost";
@@ -28,14 +34,24 @@ public class RegisterDAO {
         String name = "proyectotienda";
         String username = "root";
         String password ="KONRAD2000";
+        
 
         conexion = DriverManager.getConnection("jdbc:mariadb://" + host + ":" + port + "/" + name + "?serverTimezone=UTC",
                 username, password);
     }
+    /**
+     * 
+     * @throws SQLException 
+     */
     public void desconectar() throws SQLException {
         conexion.close();
     }
     //REGISTAR A UN USUARIO
+    /**
+     * 
+     * @param user
+     * @throws SQLException 
+     */
     public void Registrar(Usuario user)throws SQLException{
         String sql="{CALL spaddUsuario (?,?,?,?,?)}";
         PreparedStatement sentencia=conexion.prepareStatement(sql);

@@ -54,9 +54,12 @@ public class RegisterController {
       }
       //METODO PARA REGISTRARSE
     @FXML
+    /**
+     * metodo para registrarse
+     */
     private void Registrarse(){ 
         try{
-            rdao.Registrar(new Usuario(fieldNOMBREU.getText(),fieldNOMBRE.getText(),fieldAPELLIDO.getText(),fieldCORREO.getText(),fieldCONTRAU.getText()));
+            rdao.Registrar(new Usuario(fieldNOMBREU.getText(),fieldNOMBRE.getText(),fieldAPELLIDO.getText(),fieldCORREO.getText(),fieldCONTRAU.getText()) {});
             
         } catch(SQLException ex) {
             Alertas.mostrarError(ex.getMessage());
@@ -64,6 +67,10 @@ public class RegisterController {
     }
     
     //CONECTARSE A LA BASEDATOS
+    
+    /**
+     * conexión a la base de datos.
+     */
     private static void conectarBD(){
         rdao=new RegisterDAO();
         try{
@@ -76,11 +83,17 @@ public class RegisterController {
             Alertas.mostrarError("ERROR A CARGAR LA CONEXION");
         }
     }
+    /**
+     * 
+     * @param u 
+     */
     public RegisterController(Usuario u){
         user=u;
         conectarBD();
     }
-    
+    /**
+     * cargamos la imagen en el javaFX
+     */
     public void loadImage(){
         Image img = new Image(getClass().getResourceAsStream("/img/logo_large.png"));
         imagen.setImage(img);

@@ -25,49 +25,43 @@
       </AnchorPane>
       <AnchorPane prefHeight="617.0" prefWidth="825.0" style="-fx-background-color: #38E48C;">
          <children>
-            <TextField fx:id="fieldNOMBREU" layoutX="158.0" layoutY="115.0" style="-fx-background-color: #F3EE5C;" />
-            <TextField fx:id="fieldNOMBRE" layoutX="158.0" layoutY="264.0" style="-fx-background-color: #F3EE5C;" />
-            <Text layoutX="150.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE USUARIO">
+            <TextField fx:id="fieldNOMBREU" layoutX="159.0" layoutY="65.0" style="-fx-background-color: #F3EE5C;" />
+            <TextField fx:id="fieldNOMBRE" layoutX="159.0" layoutY="214.0" style="-fx-background-color: #F3EE5C;" />
+            <Text layoutX="151.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE USUARIO">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Text>
-            <Text layoutX="134.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONTRASEÑA USUARIO">
+            <Text layoutX="135.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONTRASEÑA USUARIO">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Text>
-            <Text layoutX="194.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE">
+            <Text layoutX="195.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Text>
-            <Text layoutX="187.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="APELLIDOS">
+            <Text layoutX="188.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="APELLIDOS">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Text>
-            <TextField fx:id="fieldCONTRAU" layoutX="157.0" layoutY="193.0" style="-fx-background-color: #F3EE5C;" />
-            <TextField fx:id="fieldAPELLIDO" layoutX="157.0" layoutY="346.0" style="-fx-background-color: #F3EE5C;" />
+            <TextField fx:id="fieldCONTRAU" layoutX="158.0" layoutY="143.0" style="-fx-background-color: #F3EE5C;" />
+            <TextField fx:id="fieldAPELLIDO" layoutX="158.0" layoutY="296.0" style="-fx-background-color: #F3EE5C;" />
             <BorderPane layoutX="16.0" prefHeight="540.0" prefWidth="6.0" style="-fx-background-color: #F3EE5C;" />
             <BorderPane layoutX="39.0" prefHeight="540.0" prefWidth="6.0" style="-fx-background-color: #F3EE5C;" />
             <BorderPane layoutX="457.0" layoutY="-2.0" prefHeight="540.0" prefWidth="6.0" style="-fx-background-color: #F3EE5C;" />
             <BorderPane layoutX="433.0" layoutY="-3.0" prefHeight="540.0" prefWidth="6.0" style="-fx-background-color: #F3EE5C;" />
-            <TextField fx:id="fieldCORREO" layoutX="157.0" layoutY="418.0" style="-fx-background-color: #F3EE5C;" />
-            <Text layoutX="197.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CORREO">
+            <TextField fx:id="fieldCORREO" layoutX="158.0" layoutY="368.0" style="-fx-background-color: #F3EE5C;" />
+            <Text layoutX="198.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CORREO">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Text>
-            <Button fx:id="REGISTRARSE" layoutX="186.0" layoutY="456.0" mnemonicParsing="false" onAction="#Registrarse" text="REGISTRARSE" />
-            <Button fx:id="volver" layoutX="202.0" layoutY="501.0" mnemonicParsing="false" onAction="#BotonVolver" text="VOLVER" />
+            <Button fx:id="REGISTRARSE" layoutX="187.0" layoutY="406.0" mnemonicParsing="false" onAction="#Registrarse" text="REGISTRARSE" />
+            <Button fx:id="volver" layoutX="203.0" layoutY="451.0" mnemonicParsing="false" onAction="#BotonVolver" text="VOLVER" />
             <ImageView fx:id="imagen" fitHeight="466.0" fitWidth="323.0" layoutX="500.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
-            <TextField fx:id="fieldID" layoutX="156.0" layoutY="49.0" style="-fx-background-color: #F3EE5C;" />
-            <Text layoutX="178.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID USUARIO">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Text>
          </children>
       </AnchorPane>
    </children>

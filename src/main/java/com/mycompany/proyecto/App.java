@@ -15,7 +15,7 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
-    private static Usuario user= new Usuario();
+    private static Usuario user= new Usuario() {};
 
     @Override
     public void start(Stage stage) throws IOException {

@@ -5,6 +5,7 @@
  */
 package com.mycompany.proyecto.DAO;
 import com.mycompany.models.Articulos;
+import com.mycompany.proyecto.Alertas;
 import java.io.IOException;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -20,9 +21,14 @@ import javafx.scene.control.TableView;
  *
  * @author konra
  */
-public abstract class ConsultarArticulosDAO {
+public  class ConsultarArticulosDAO {
     private Connection conectar;
-    
+    /**
+     * metodo para realizar la conexión a la base de datos.
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     * @throws IOException 
+     */
     public void conectar() throws ClassNotFoundException, SQLException, IOException {
         String host = "localhost";
         String port = "3306";
@@ -35,12 +41,22 @@ public abstract class ConsultarArticulosDAO {
                 port + "/" + name + "?serverTimezone=UTC",username, password);
     
     }
+    /**
+     * metodo para desconectarse de la base de datos.
+     * @throws SQLException 
+     */
     public void desconectar() throws SQLException {
         conectar.close();
     }
     
     //METHOD OF INSERT
+    /**
+     * metodo para insertar articulos en la base de datos.
+     * @param articulo
+     * @throws SQLException 
+     */
     public void insertArticulos(Articulos articulo)throws SQLException{
+        
         String sql="{CALL spInsertarArticulos (?,?,?,?,?,?,?)}";
         System.out.println(sql);
         PreparedStatement sentencia= conectar.prepareStatement(sql);
@@ -52,7 +68,13 @@ public abstract class ConsultarArticulosDAO {
         sentencia.setInt(6,articulo.getCategoria_id());
         sentencia.setString(7,articulo.getTipo());
         sentencia.executeUpdate();
+        
     }//METHOD OF DELETE
+    /**
+     * metodo para borrar un articulo de la base de datos.
+     * @param articulo
+     * @throws SQLException 
+     */
     public void deleteArticulos(Articulos articulo) throws SQLException{
          String sql=" delete from articulos where ID_ARTICULO=?";
          
@@ -60,6 +82,11 @@ public abstract class ConsultarArticulosDAO {
          sentencia.setInt(1,articulo.getId_producto());
          sentencia.executeUpdate();
     }//METHOD OF MODIFY
+    /**
+     * metodo para modificar un articulo .
+     * @param articulo
+     * @throws SQLException 
+     */
     public void modifyArticulos( Articulos articulo)throws SQLException{
         String sql="{CALL spModificarArticulos (?,?,?,?,?,?,?)}";
         
@@ -78,10 +105,20 @@ public abstract class ConsultarArticulosDAO {
       
     }
     //METHOD OF SELECT
+    /**
+     * metodo que te permite seleccionar un articulo en la listview.
+     * @param articulo
+     * @throws SQLException 
+     */
     public void selectArticulos(Articulos articulo)throws SQLException{
         String sql="SELECT * FROM ARTICULOS ";
     }
     //MOSTRAR LISTA DE LOS ARTICULOS DE LA BASE DE DATOS
+    /**
+     * 
+     * @return
+     * @throws SQLException 
+     */
     public List<Articulos> listArticulos() throws SQLException{
         List<Articulos> articulos= new ArrayList<>();
         String sql="SELECT * FROM ARTICULOS";
@@ -102,15 +139,7 @@ public abstract class ConsultarArticulosDAO {
         }
         return articulos;
     }
-    public boolean searchArticulo(int id,String nombre)throws SQLException{
-        String sql="SELECT * FROM articulos WHERE id_articulo LIKE ? LIMIT1";
-        PreparedStatement sentencia=conectar.prepareStatement(sql);
-        sentencia.setInt(1, id);
-        sentencia.setString(2,nombre);
-        ResultSet resultado= sentencia.executeQuery();
-        
-        return resultado.next();
-    }
+   
     
     
     

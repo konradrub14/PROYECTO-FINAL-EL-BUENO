@@ -51,12 +51,17 @@ public class LoginController {
      * @throws IOException 
      */
     @FXML
-    
+    /**
+     * metodo para pasar a la pantalla de register.
+     */
     public void loadRegister()throws IOException{
         App.loadRegister();
     }
     
     @FXML
+    /**
+     * metodo que permite iniciar sesión, siempre y cuando el usuario y la contraseña se encuentren en la bae de datos.
+     */
     public void login(){
         login= new LoginDAO();
         
@@ -82,7 +87,9 @@ public class LoginController {
         }
         
     }
-    
+    /**
+     * metodos para cargar imagenes en el javaFX.
+     */
     public void loadImage(){
         Image img = new Image(getClass().getResourceAsStream("/img/descarga.png"));
         imagen.setImage(img);

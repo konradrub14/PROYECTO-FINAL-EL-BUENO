@@ -28,7 +28,7 @@ public class UsuarioTest {
     public void testCheckNombre() {
         System.out.println("checkNombre");
         String nombre = "jaja";
-        Usuario instance = new Usuario();
+        Usuario instance = new UsuarioImpl();
         boolean expResult = false;
         boolean result = instance.checkNombre(nombre);
         assertFalse(result);
@@ -43,7 +43,7 @@ public class UsuarioTest {
     public void testCheckEmail() {
         System.out.println("checkEmail");
         String email = "emaillllll";
-        Usuario instance = new Usuario();
+        Usuario instance = new Usuario() {};
         boolean expResult = false;
         boolean result = instance.checkEmail(email);
         assertFalse(result);
@@ -58,11 +58,17 @@ public class UsuarioTest {
     public void testCheckPassword() {
         System.out.println("checkPassword");
         String passw = "con";
-        Usuario instance = new Usuario();
+        Usuario instance = new Usuario() {};
         boolean expResult = false;
         boolean result = instance.checkPassword(passw);
         assertFalse(result);
             
+    }
+
+    private static class UsuarioImpl extends Usuario {
+
+        public UsuarioImpl() {
+        }
     }
 
     

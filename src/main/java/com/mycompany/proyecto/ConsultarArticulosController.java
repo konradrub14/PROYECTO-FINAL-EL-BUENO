@@ -70,19 +70,23 @@ private Text bienvenido;
 
 //ADD ARTICLES
 @FXML
+/**
+ * metodo para añadir un articulo
+ */
 private void aniadirArticulo(){
     try{
         cadao.insertArticulos(new Articulos(Integer.parseInt(fieldID.getText()),fieldNOMBRE.getText(),fieldDESCRIPCION.getText(),Float.parseFloat(fieldPRECIO.getText()),Integer.parseInt(fieldSTOCK.getText()),Integer.parseInt(fieldCATEGORIA.getText()),combo.getValue().toString()));
         initArticulos();
-        Alert confirmacion= new Alert(Alert.AlertType.CONFIRMATION);
-        confirmacion.setTitle("Añadir articulo");
-        confirmacion.setContentText("¿Estás seguro que deseas añadir este articulo?");
+        
     }catch (SQLException ex){
         Alertas.mostrarError("ERROR AL AÑADIR EL ARTICULO A LA BASE DE DATOS"+ex.getMessage());
     }
 }
 //DELETE ARTICLES
 @FXML
+/**
+ * metodo para eliminar articulos
+ */
 private void eliminarArticulos(){
     artselec=(Articulos)listaArticulos.getSelectionModel().getSelectedItem();
     if(artselec==null){
@@ -103,6 +107,9 @@ private void eliminarArticulos(){
     }
 }
 @FXML
+/**
+ * metodo para modificar articulos
+ */
 private void modificarArticulos(){
     artselec=(Articulos)listaArticulos.getSelectionModel().getSelectedItem();
     if(artselec==null){
@@ -110,6 +117,12 @@ private void modificarArticulos(){
         
     }
     try{
+        Alert confirmacion= new Alert(Alert.AlertType.CONFIRMATION);
+        confirmacion.setTitle("Modificar Articulo");
+        confirmacion.setContentText("¿Estás seguro que deseas modificar este articulo?");
+        Optional<ButtonType>respuesta=confirmacion.showAndWait();
+         if(respuesta.get().getButtonData()==ButtonBar.ButtonData.CANCEL_CLOSE)
+            return;
         cadao.modifyArticulos(new Articulos(artselec.getId_producto(),fieldNOMBRE.getText(),fieldDESCRIPCION.getText(),Float.parseFloat(fieldPRECIO.getText()),Integer.parseInt(fieldSTOCK.getText()),Integer.parseInt(fieldCATEGORIA.getText()),combo.getValue().toString()));
         initArticulos();
     }catch(SQLException ex){
